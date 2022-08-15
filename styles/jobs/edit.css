@@ -1,0 +1,191 @@
+.edit-job-content {
+    max-width: 1300px;
+    margin: auto;
+    overflow: auto;
+    padding: 30px 20px 30px 20px;
+  }
+  
+  .edit-job-header {
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    cursor: default;
+    font-weight: bold;
+  }
+  
+  .edit-job-form-container {
+    overflow: auto;
+    margin-top: 25px;
+  }
+  
+  .edit-job-form-section {
+    margin-bottom: 25px;
+  }
+  
+  .edit-job-form-section-label {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .edit-job-form-section-input {
+    width: 100%;
+  }
+  
+  .edit-job-form-section-input input[type="text"] {
+    width: 575px;
+    font-size: 15px;
+    line-height: normal;
+    padding: 10.5px 0;
+    text-indent: 14px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 0.5px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+  }
+  
+  .edit-job-form-section-input input[type="datetime-local"] {
+    width: 275px;
+    font-size: 14px;
+    line-height: normal;
+    padding: 10.5px 0;
+    text-indent: 6px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 0.5px solid #cacbcc;
+    box-sizing: content-box;
+    overflow: visible;
+    color: #26394d;
+    user-select: none;
+  }
+  
+  .edit-job-content-btns-container {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  
+  .edit-job-content-btns-row {
+    margin-bottom: 10px;
+  }
+  
+  .edit-job-content-btn {
+    background-image: linear-gradient(to bottom, #e4e4e4, #f7f7f7);
+    border: 1px solid #afafaf;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    font-size: 11px;
+    cursor: default;
+    margin-right: 7.5px;
+  }
+  
+  .edit-job-form-section-code-content-input {
+    width: 90%;
+  }
+  
+  .edit-job-form-section-input textarea {
+    resize: none;
+    height: 125px;
+    width: 575px;
+    border-radius: 3px;
+    border: 0.5px solid #cacbcc;
+    padding: 10.5px;
+    box-sizing: border-box;
+    font-size: 14.5px;
+  }
+  
+  .char-length {
+    user-select: none;
+    margin-left: 15px;
+    font-size: 14px;
+  }
+  
+  .char-length.green {
+    color: green;
+  }
+  
+  .char-length.red {
+    color: rgb(186,51,58,0.85);
+  }
+  
+  .edit-job-form-section-date-input-now {
+    text-decoration: underline;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-job-seo-section-title {
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .edit-job-form-btns-section {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .edit-job-form-submit-btn-container {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .edit-job-form-btn {
+    background: #357edd;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 15px 0px 15px 0px;
+  }
+  
+  .edit-job-form-btn.loading {
+    opacity: 0.9;
+  }
+  
+  .edit-job-form-btn.loading span:after {
+    color: rgb(232, 232, 232);
+    content: ' .';
+    animation: dots 1.2s steps(5, end) infinite;
+  }
+  
+  .edit-job-submit-error-msg {
+    color: rgb(186,51,58,0.85);
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  .edit-job-submit-success-msg {
+    color: green;
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  .edit-job-form-delete {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    color: rgb(186,51,58,0.85);
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .edit-job-form-delete:hover {
+    text-decoration: underline;
+  }
+  
+  .edit-job-get-data-error-msg {
+    text-align: center;
+    margin-top: 35vh;
+  }
