@@ -88,6 +88,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.titleInputValue}
                     onChange={this.updateTitleInputValue}
+                    placeholder="Customer lastname and location "
                   />
                 </div>
               </div>
@@ -100,6 +101,20 @@ export default class extends Component {
                     type="text"
                     value={this.state.customerInputValue}
                     onChange={this.updateCustomerInputValue}
+                    placeholder="Customer first and last name"
+                  />
+                </div>
+              </div>
+              <div className="create-job-form-section">
+                <div className="create-job-form-section-label">
+                  <span>Job Type</span>
+                </div>
+                <div className="create-job-form-section-input">
+                  <input
+                    type="text"
+                    value={this.state.customerInputValue}
+                    onChange={this.updateCustomerInputValue}
+                    placeholder="Install, Removal, Both"
                   />
                 </div>
               </div>
@@ -112,6 +127,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.pastdueInputValue}
                     onChange={this.updatePastDueInputValue}
+                    placeholder="Manually add billing status"
                   />
                 </div>
               </div>
@@ -124,6 +140,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.locationInputValue}
                     onChange={this.updateLocationInputValue}
+                    placeholder="Google maps location pin"
                   />
                 </div>
               </div>
@@ -136,6 +153,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.tagsInputValue}
                     onChange={this.updateTagsInputValue}
+                    placeholder="people 3, boat needed, deep water"
                   />
                 </div>
               </div>
@@ -149,6 +167,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.descriptionInputValue}
                     onChange={this.updateDescriptionInputValue}
+                    placeholder="The jobs description or instalation instructions"
                   />
                 </div>
               </div>
@@ -162,6 +181,7 @@ export default class extends Component {
                     type="text"
                     value={this.state.notesInputValue}
                     onChange={this.updateNotesInputValue}
+                    placeholder="Any notes you want to add while creating the job"
                   />
                 </div>
               </div>
