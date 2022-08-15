@@ -15,33 +15,12 @@ export default class extends Component {
     }
   
     return {
-      overdueJobs: apiResult.overdueJobs ? apiResult.overdueJobs : [],
-      paidupJobs: apiResult.paidupJobs ? apiResult.paidupJobs : [],
+      jobs: apiResult.jobs ? apiResult.jobs : [],
       getDataError: apiResult && apiResult.getDataError
     }
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      showOverdueJobs: true,
-      showPaidupJobs: false
-    }
-  }
 
-  handleOverdueBtnClick = () => {
-    this.setState({
-      showOverdueJobs: true,
-      showPaidupJobs: false
-    })
-  }
-
-  handlePaidupBtnClick = () => {
-    this.setState({
-      showOverdueJobs: false,
-      showPaidupJobs: true
-    })
-  }
 
 
   render () {
@@ -67,26 +46,6 @@ export default class extends Component {
               </div>
             </div>
             <div className="jobs-list-container">
-              <div className="jobs-list-tab-btns">
-                <div className="jobs-list-tab-btn-container">
-                  <div
-                    className={this.state.showOverdueJobs ? "jobs-list-tab-btn active" : "jobs-list-tab-btn"}
-                    onClick={() => this.handleOverdueBtnClick()}
-                  >
-                    <span>Overdue</span>
-                  </div>
-                </div>
-                <div className="jobs-list-tab-btn-container">
-                  <div
-                    className={this.state.showPaidupJobs ? "jobs-list-tab-btn active" : "jobs-list-tab-btn"}
-                    onClick={() => this.handlePaidupBtnClick()}
-                  >
-                    <span>paidup</span>
-                  </div>
-                </div>
-              </div>
-              </div>
-            <div className="jobs-list-container">
               <div className="jobs-list-items-table">
                 <div className="jobs-list-items-table-header">
                   <div className="jobs-list-items-table-header-item title">
@@ -95,8 +54,8 @@ export default class extends Component {
                   <div className="jobs-list-items-table-header-item customer hidden">
                     <span>Customer</span>
                   </div>
-                  <div className="jobs-list-items-table-header-item pastdue">
-                    <span>Past Due</span>
+                  <div className="jobs-list-items-table-header-item billed">
+                    <span>Billed</span>
                   </div>
                   <div className="jobs-list-items-table-header-item location hidden">
                     <span>Location</span>
@@ -106,8 +65,7 @@ export default class extends Component {
                   </div>
                 </div>
                
-                {
-                  this.state.showOverdueJobs ?
+                
                   <div className="jobs-list-items-table-item">
                     
                     <div className="jobs-list-items-table-item-data title">
@@ -116,7 +74,7 @@ export default class extends Component {
                     <div className="jobs-list-items-table-item-data customer">
                       <span>John Johnson</span>
                     </div>
-                    <div className="jobs-list-items-table-item-data pastdue">
+                    <div className="jobs-list-items-table-item-data billed">
                       <span>TRUE</span>
                     </div>
                     <div className="jobs-list-items-table-item-data location">
@@ -128,25 +86,9 @@ export default class extends Component {
                       </a>
                       <span> </span>
                     </div>
-                  </div> : null
-                }
-                {
-                  this.state.showPaidupJobs ?
-                  <div className="jobs-list-items-table-item">
-                    <div className="jobs-list-items-table-item-data title">
-                      <span>job Title 2</span>
-                    </div>
-                    <div className="jobs-list-items-table-item-data date">
-                      <span>12/20/2025</span>
-                    </div>
-                    <div className="jobs-list-items-table-item-data edit">
-                      <a href={`/job/edit-job/job-ID`}>
-                        <span>Edit</span>
-                      </a>
-                      <span> </span>
-                    </div>
-                  </div> : null
-                }
+                  </div> 
+                
+               
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ export default class extends Component {
       titleInputValue:"",
       customerInputValue:"",
       descriptionInputValue:"",
-      pastdueInputValue: null,
+      billedInputValue: null,
       tagsInputValue:"",
       locationInputValue:"",
       notesInputValue:"",
@@ -45,8 +45,8 @@ export default class extends Component {
     this.setState({locationInputValue: event.target.value})
   }
 
-  updatePastDueInputValue = (event) => {
-    this.setState({pastdueInputValue: event.target.value})
+  updateBilledInputValue = (event) => {
+    this.setState({billedInputValue: event.target.value})
   }
 
   updateDescriptionInputValue = (event) => {
@@ -120,13 +120,13 @@ export default class extends Component {
               </div>
               <div className="create-job-form-section">
                 <div className="create-job-form-section-label">
-                  <span>Pastdue</span>
+                  <span>Billed</span>
                 </div>
                 <div className="create-job-form-section-input">
                   <input
                     type="text"
-                    value={this.state.pastdueInputValue}
-                    onChange={this.updatePastDueInputValue}
+                    value={this.state.billedInputValue}
+                    onChange={this.updateBilledInputValue}
                     placeholder="Manually add billing status"
                   />
                 </div>

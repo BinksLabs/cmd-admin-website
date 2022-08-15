@@ -15,7 +15,7 @@ export default class extends Component {
           titleInputValue:"Johnson Moosehead",
           customerInputValue:"John Johnson",
           descriptionInputValue:"This is a sample description of the page. Will and can be longer.",
-          pastdueInputValue: true,
+          billedInputValue: true,
           tagsInputValue:"Tool1, tool2, extra helper",
           locationInputValue:"test cords",
           notesInputValue:"Examplenote 1, Examplenote 2, example note 3",
@@ -36,8 +36,8 @@ export default class extends Component {
     this.setState({locationInputValue: event.target.value})
   }
 
-  updatePastDueInputValue = (event) => {
-    this.setState({pastdueInputValue: event.target.value})
+  updateBilledInputValue = (event) => {
+    this.setState({billedInputValue: event.target.value})
   }
 
   updateDescriptionInputValue = (event) => {
@@ -112,13 +112,13 @@ export default class extends Component {
               </div>
               <div className="create-job-form-section">
                 <div className="create-job-form-section-label">
-                  <span>Pastdue</span>
+                  <span>Billed</span>
                 </div>
                 <div className="create-job-form-section-input">
                 <input
                     type="text"
-                    value={this.state.pastdueInputValue}
-                    onChange={this.updatePastDueInputValue}
+                    value={this.state.billedInputValue}
+                    onChange={this.updateBilledInputValue}
                   />
                 </div>
               </div>
