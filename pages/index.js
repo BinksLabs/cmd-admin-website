@@ -81,7 +81,7 @@ export default class extends Component {
                       <span>Moosehead Lake Greenville Maine</span>
                     </div>
                     <div className="jobs-list-items-table-item-data edit">
-                      <a href={`/job/edit-job/job-ID`}>
+                      <a href={`/job/view-job/job-ID`}>
                         <span>Edit</span>
                       </a>
                       <span> </span>
