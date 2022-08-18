@@ -16,7 +16,7 @@ export default class extends Component {
               href="/"
             >
               
-              <button class="button-2" role="button">All Jobs</button>
+              <button className="button-2" role="button">All Jobs</button>
               
             </a>
           
