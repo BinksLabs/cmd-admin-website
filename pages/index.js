@@ -15,7 +15,7 @@ export default class extends Component {
     }
 
     return {
-      jobs: apiResult.jobs ? apiResult.jobs : [],
+      allJobs: apiResult.allJobs ? apiResult.allJobs : [],
       getDataError: apiResult && apiResult.getDataError,
     };
   }
@@ -59,28 +59,35 @@ export default class extends Component {
                     <span>Location</span>
                   </div>
                   <div className="jobs-list-items-table-header-item settings">
-                    <span>Settings</span>
+                    <span>View</span>
                   </div>
                 </div>
-
-                <div className="jobs-list-items-table-item">
-                  <div className="jobs-list-items-table-item-data title">
-                    <span>Johnson Moosehead</span>
-                  </div>
-                  <div className="jobs-list-items-table-item-data customer">
-                    <span>John Johnson</span>
-                  </div>
-                  <div className="jobs-list-items-table-item-data billed">
-                    <span>TRUE</span>
-                  </div>
-                  <div className="jobs-list-items-table-item-data location">
-                    <span>Moosehead Lake Greenville Maine</span>
-                  </div>
-                  <div className="jobs-list-items-table-item-data edit">
-                    <a href={`/job/view-job/job-ID`}>
-                      <span>View</span>
-                    </a>
-                  </div>
+                <div className="homepage-latest-blog-posts-list">
+                  {this.props.allJobs.length
+                    ? this.props.allJobs.map((job, index) => {
+                        return (
+                          <div key={index} className="jobs-list-items-table-item">
+                            <div className="jobs-list-items-table-item-data title">
+                              <span>{job.title}</span>
+                            </div>
+                            <div className="jobs-list-items-table-item-data customer">
+                              <span>{job.customer}</span>
+                            </div>
+                            <div className="jobs-list-items-table-item-data billed">
+                              <span>{String(job.billed)}</span>
+                            </div>
+                            <div className="jobs-list-items-table-item-data location">
+                              <span>{job.location}</span>
+                            </div>
+                            <div className="jobs-list-items-table-item-data edit">
+                              <a href={`/job/${job.title}`}>
+                                <span>View</span>
+                              </a>
+                            </div>
+                          </div>
+                        );
+                      })
+                    : null}
                 </div>
               </div>
             </div>

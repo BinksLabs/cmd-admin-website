@@ -170,6 +170,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .jobs-content {
+    padding: 1em;
+  }
 .jobs-list-items-table-item-data.customer {
   display: none;
 
