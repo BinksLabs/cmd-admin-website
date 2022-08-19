@@ -5,6 +5,7 @@ import Head from "next/head"
 import Header from "../../components/header.js"
 import Adminnav from "../../components/adminnav.js"
 import authUser from "../../api/admin-user/auth.js"
+import createNewJob from "../../api/jobs/createNewJob.js"
 
 
 export default class extends Component {
@@ -21,17 +22,18 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      titleInputValue:"",
-      customerInputValue:"",
-      descriptionInputValue:"",
-      billedInputValue: null,
-      tagsInputValue:"",
-      locationInputValue:"",
-      notesInputValue:"",
-
       loading: false,
       submitError: false,
       errorMsg: "",
+      titleInputValue:"",
+      customerInputValue:"",
+      descriptionInputValue:"",
+      billedInputValue: "",
+      tagsInputValue:"",
+      locationInputValue:"",
+      notesInputValue:"",
+      jobtypeInputValue:""
+      
     }
   }
 
@@ -61,9 +63,57 @@ export default class extends Component {
     this.setState({tagsInputValue: event.target.value})
   }
 
-  submitCreateNewJobRequest = () => {
-    this.setState({submitError: false, errorMsg: "", loading: true})
+  updateJobTypeInputValue = (event) => {
+    this.setState({jobtypeInputValue: event.target.value})
   }
+
+//         customer: customer,
+//         description: description,
+//         billed: billed,
+//         tags: arrayOfTags,
+//         location: location,
+//         notes: notes,
+//         images: images
+
+  submitCreateNewJobRequest = () => {
+  if (!this.state.titleInputValue) {
+    this.setState({submitError: true, errorMsg: "Title field is required."})
+  } else if (!this.state.descriptionInputValue) {
+    this.setState({submitError: true, errorMsg: "Description field is required."})
+  } else if (!this.state.billedInputValue) {
+    this.setState({submitError: true, errorMsg: "Billed field is required."})
+  } else if (!this.state.tagsInputValue) {
+    this.setState({submitError: true, errorMsg: "Tags field is required."})
+  } else if (!this.state.locationInputValue) {
+    this.setState({submitError: true, errorMsg: "Location field is required."})
+  } else if (!this.state.customerInputValue) {
+    this.setState({submitError: true, errorMsg: "Customer field is required."})
+  }else {
+    this.setState({submitError: false, errorMsg: "", loading: true})
+
+    const self = this
+
+    createNewJob(
+      this.state.titleInputValue,
+      this.state.descriptionInputValue,
+      this.state.tagsInputValue,
+      this.state.billedInputValue,
+      this.state.customerInputValue,
+      this.state.locationInputValue,
+      function(apiResponse) {
+        if (!apiResponse.authSuccess) {
+          window.location.href = "/login"
+        } else if (apiResponse.alreadyExistsError) {
+          self.setState({submitError: true, errorMsg: "Job with that title already exists.", loading: false})
+        } else if (apiResponse.submitError || !apiResponse.success) {
+          self.setState({submitError: true, errorMsg: "An error occurred.", loading: false})
+        } else {
+          window.location.href = "/"
+        }
+      }
+    )
+  }
+}
 
   render () {
     return (
@@ -112,8 +162,8 @@ export default class extends Component {
                 <div className="create-job-form-section-input">
                   <input
                     type="text"
-                    value={this.state.customerInputValue}
-                    onChange={this.updateCustomerInputValue}
+                    value={this.state.jobtypeInputValue}
+                    onChange={this.updateJobTypeInputValue}
                     placeholder="Install, Removal, Both"
                   />
                 </div>
@@ -188,7 +238,7 @@ export default class extends Component {
               <div className="create-job-form-btn-container">
                 {
                   !this.state.loading ?
-                  <div onClick={this.submitCreateNewPostRequest} className="create-job-form-btn">
+                  <div onClick={this.submitCreateNewJobRequest} className="create-job-form-btn">
                     <span>Submit</span>
                   </div> :
                   <div className="create-job-form-btn loading">
